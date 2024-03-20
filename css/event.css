@@ -1,0 +1,213 @@
+:root {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1rem;
+    line-height: 1.42857143;
+    color: #696973;
+    display: flex;
+    flex-direction: column;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+article > .event-header {
+    display: flex;
+    flex-direction: column;
+}
+
+article > .event-header > .event-title {
+    font-weight: 400;
+    color: #000;
+}
+
+article > .event-header > .event-location {
+    color:#efb149;
+}
+
+article > .event-body > .event-content, article > .event-body > .event-info {
+    flex: 1 1 0;
+}
+
+article > .event-body {
+    display: flex;
+    gap: 2rem;
+}
+
+article > .event-body > .event-info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+article > .event-body > .event-info > .event-info-map {
+    border: #d3d3d3 solid 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+article > .event-body > .event-info > .event-info-map > .location-details {
+    padding: 1rem 1rem 0 1rem;
+}
+
+article > .event-body > .event-info > .event-info-map > .location-details > p {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #efb149;
+    margin: 0 0 1rem;
+}
+
+article > .event-body > .event-content > .event-image {
+    width: 710px;
+    margin-bottom: 1rem;
+}
+
+article > .event-body > .event-content > .event-image > img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+article > .event-body > .event-content > .event-short-desc {
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0.5rem;
+}
+
+article > .event-body > .event-content > .event-long-desc {
+    line-height: 1.57rem;
+}
+
+article > .event-body > .event-info >.event-info-details {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+article > .event-body > .event-info >.event-info-details > i {
+    font-size: 1.5rem;
+    color: #efb149;
+}
+
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575px){
+    body {
+        font-size: 12px;
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 90%;
+        
+    }
+
+    article > .event-header > .event-title {
+        font-size: 20px;
+    }
+
+    article > .event-body {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.5rem;
+    }
+
+    article > .event-body > .event-content > .event-image {
+        width: auto;
+    }
+
+    article > .event-body > .event-info {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+
+    }
+
+    article > .event-body > .event-info > .event-info-map,
+    article > .event-body > .event-info > .event-info-map > iframe {
+        width: 100%;
+    } 
+
+    article > .event-body > .event-info > .event-info-map > .location-details > p {
+        font-size: 15px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .curtural-events-container, .curtural-events {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .curtural-event {
+        width: 80%;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .curtural-events-container {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .curtural-events-container > .curtural-events {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .curtural-events-container > .curtural-events > .curtural-event {
+        width: 45%;
+    }
+
+   
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .curtural-events-container > .curtural-events {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .curtural-events-container > .curtural-events > .curtural-event {
+        width: calc(33.333% - 20px);
+        flex: 0 0 auto;
+        margin-bottom: 1rem;
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) { ... } */
