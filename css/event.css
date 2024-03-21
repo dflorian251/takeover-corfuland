@@ -29,82 +29,82 @@ article {
     margin: 0 auto;
 }
 
-article > .event-header {
+article > .article-container > .event-header {
     display: flex;
     flex-direction: column;
 }
 
-article > .event-header > .event-title {
+article > .article-container > .event-header > .event-title {
     font-weight: 400;
     color: #000;
 }
 
-article > .event-header > .event-location {
+article > .article-container > .event-header > .event-location {
     color:#efb149;
 }
 
-article > .event-body > .event-content, article > .event-body > .event-info {
+article > .article-container > .event-body > .event-content, article > .event-body > .event-info {
     flex: 1 1 0;
 }
 
-article > .event-body {
+article > .article-container > .event-body {
     display: flex;
     gap: 2rem;
 }
 
-article > .event-body > .event-info {
+article > .article-container > .event-body > .event-info {
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: start;
 }
 
-article > .event-body > .event-info > .event-info-map {
+article > .article-container > .event-body > .event-info > .event-info-map {
     border: #d3d3d3 solid 1px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-article > .event-body > .event-info > .event-info-map > .location-details {
+article > .article-container > .event-body > .event-info > .event-info-map > .location-details {
     padding: 1rem 1rem 0 1rem;
 }
 
-article > .event-body > .event-info > .event-info-map > .location-details > p {
+article > .article-container > .event-body > .event-info > .event-info-map > .location-details > p {
     font-weight: 600;
     font-size: 1.1rem;
     color: #efb149;
     margin: 0 0 1rem;
 }
 
-article > .event-body > .event-content > .event-image {
+article > .article-container > .event-body > .event-content > .event-image {
     width: 710px;
     margin-bottom: 1rem;
 }
 
-article > .event-body > .event-content > .event-image > img {
+article > .article-container > .event-body > .event-content > .event-image > img {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
 
-article > .event-body > .event-content > .event-short-desc {
+article > .article-container > .event-body > .event-content > .event-short-desc {
     font-weight: 600;
     color: #000;
     margin-bottom: 0.5rem;
 }
 
-article > .event-body > .event-content > .event-long-desc {
+article > .article-container > .event-body > .event-content > .event-long-desc {
     line-height: 1.57rem;
 }
 
-article > .event-body > .event-info >.event-info-details {
+article > .article-container > .event-body > .event-info >.event-info-details {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-article > .event-body > .event-info >.event-info-details > i {
+article > .article-container > .event-body > .event-info >.event-info-details > i {
     font-size: 1.5rem;
     color: #efb149;
 }
