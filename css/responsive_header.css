@@ -86,7 +86,11 @@ li.language_container {
     }
 
     .header .header-menu-container {
-        display: none;
+        display: none;  
+    }
+
+    .header .header-menu-container ul {
+        padding-left: 0;
     }
 
     .header .header-menu-container ul li {
