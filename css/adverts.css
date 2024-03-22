@@ -62,19 +62,34 @@ h1.page-title {
     margin-bottom: 0.5rem;
     border: 1px black solid;
     color: black;
-    padding: 0.5rem;
 }
 
-.adverts-container > .adverts > .advert:hover {
+.adverts-container > .adverts > .advert > article {
+    padding: 0.5rem;
+    background-color: #F2F2F2;
+}
+
+.adverts-container > .adverts > .advert > article > .advert-title:hover {
+    text-decoration: underline;
+}
+
+.adverts-container > .adverts > .advert:hover > article,
+.adverts-container > .adverts > .advert > article:hover > .advert-date,
+.adverts-container > .adverts > .advert > article:hover > .advert-title {
     color: black;
     background-color: #ff4949;
 }
 
 .adverts-container > .adverts > .advert > article > .advert-date {
     color: #696973;
+    font-size: clamp(0.6rem, 0.5325rem + 0.3vw, 0.9rem);
 }
 
 .adverts-container > .adverts > .advert > article > .advert-title {
-    font-weight: 700;
+    color: #ff4949;
+}
+
+.adverts-container > .adverts > .advert > article > .advert-tags > a {
     color: black;
+    font-size: clamp(0.5rem, 0.455rem + 0.2vw, 0.75rem);
 }
