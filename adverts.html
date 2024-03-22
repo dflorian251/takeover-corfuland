@@ -8,7 +8,7 @@
 
         <link rel="stylesheet" href="css/responsive_menu.css">
         <link rel="stylesheet" href="css/responsive_header.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/adverts.css">
 
         <title>Αγγελίες</title>
     </head>
@@ -132,46 +132,66 @@
         </div>
 
 
-        <div class="container adverts-events-portal adverts-events-portal-bloc-3 adverts-container">
-            <h2>Αγγελίες</h2>
-            <ul class="row adverts">
-                <?php foreach ($result as $row){ ?>
-                <li class="advert">
-                    <article class="in-article-card" id="mini-post-21059">
-                        <time>
-                            <?php
-                            $databaseDate = DateTime::createFromFormat('Y-m-d', $row['registrationDate']);
-                            $start_date = $databaseDate->format('d/m/Y');
-                            echo str_replace('-','/',$start_date);
-                            ?>
-                        </time>
-                        <h3>
-                            <a href="ad.php?id=<?=$row['advert_id']?>" class="ad-title">
-                                <?php echo $row["advert_title"]?>
-                            </a>
-                        </h3>
-                        <div class="tags">
-                            <a href="#" rel="tag" class="tag">
-                                <?php 
-                                $tagID = $row["tag_id"];
-                                $query = "SELECT * FROM tag WHERE id = $tagID";
+        
 
-                                $stmt = $conn->prepare($query); 
-                                // EXECUTING THE QUERY 
-                                $stmt->execute(); 
-                                $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-                                // FETCHING DATA FROM DATABASE 
-                                $result_tag = $stmt->fetchAll(); 
-                                foreach ($result_tag as $row_tag) {
-                                    echo $row_tag["name"];
-                                }
-                                ?>
-                            </a>
-                               
+        <h1 class="page-title">ADVERTS</h1>
+        <div class="adverts-container">
+            <ul class="adverts">
+                <li class="advert">
+                    <article>
+                        <div class="advert-date">22/03/24</div>
+                        <a href="#" class="advert-title">Νοικιάζεται γκαρσιονιέρα στην παλιά πόλη</a>
+                        <div class="advert-tags">
+                            <a href="#" rel="tag">ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
                         </div>
                     </article>
-                <?php }?>
                 </li>
+                <li class="advert">
+                    <article>
+                        <div class="advert-date">22/03/24</div>
+                        <a href="#" class="advert-title">Νοικιάζεται γκαρσιονιέρα στην παλιά πόλη</a>
+                        <div class="advert-tags">
+                            <a href="#" rel="tag">ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
+                        </div>
+                    </article>
+                </li>
+                <li class="advert">
+                    <article>
+                        <div class="advert-date">22/03/24</div>
+                        <a href="#" class="advert-title">Νοικιάζεται γκαρσιονιέρα στην παλιά πόλη</a>
+                        <div class="advert-tags">
+                            <a href="#" rel="tag">ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
+                        </div>
+                    </article>
+                </li>
+                <li class="advert">
+                    <article>
+                        <div class="advert-date">22/03/24</div>
+                        <a href="#" class="advert-title">Νοικιάζεται γκαρσιονιέρα στην παλιά πόλη</a>
+                        <div class="advert-tags">
+                            <a href="#" rel="tag">ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
+                        </div>
+                    </article>
+                </li>
+                <li class="advert">
+                    <article>
+                        <div class="advert-date">22/03/24</div>
+                        <a href="#" class="advert-title">Νοικιάζεται γκαρσιονιέρα στην παλιά πόλη</a>
+                        <div class="advert-tags">
+                            <a href="#" rel="tag">ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
+                        </div>
+                    </article>
+                </li>
+                <li class="advert">
+                    <article>
+                        <div class="advert-date">22/03/24</div>
+                        <a href="#" class="advert-title">Νοικιάζεται γκαρσιονιέρα στην παλιά πόλη</a>
+                        <div class="advert-tags">
+                            <a href="#" rel="tag">ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
+                        </div>
+                    </article>
+                </li>
+                
             </ul>
         </div>
 

@@ -15,7 +15,7 @@
 
 body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 1rem;
+    font-size: clamp(0.75rem, -58.042rem + 261.3vw, 1.25rem);
     line-height: 1.42857143;
     color: #696973;
     display: flex;
@@ -117,10 +117,6 @@ h1.page-title {
 
 /* X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575px){
-    body {
-        font-size: 12px;
-    }
-
     .curtural-events-container, .curtural-events {
         flex-direction: column;
         align-items: center;
@@ -129,14 +125,14 @@ h1.page-title {
     .curtural-event {
         width: 80%;
     }
+
+    .curtural-events-container > .curtural-events > .curtural-event > article > .curtural-event-info > .curtural-event-title {
+        font-size: 1.25rem;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-    body {
-        font-size: 12px;
-    }
-    
     .curtural-events-container, .curtural-events {
         flex-direction: column;
         align-items: center;
