@@ -135,12 +135,14 @@ XX-Large devices (larger desktops, 1400px and up)
 /* ADVERT MENU STYLING */
 /* --------------------- */
 .advert-menu-container {
+    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .advert-menu-container .advert-menu {
+    padding: 0;
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -154,5 +156,26 @@ XX-Large devices (larger desktops, 1400px and up)
 .advert-menu-container .advert-menu .advert-menu-option a {
     color: #ff4949;
 }
+
+/* X-Small devices (portrait phones, less than 576px) AND Small devices (landscape phones, 576px and up)*/
+@media (max-width: 767px){
+    .advert-menu-container .advert-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... } */
+
+/* Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... } */
+
+/* X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) { ... } */
+
 
 
