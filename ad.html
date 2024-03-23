@@ -137,5 +137,50 @@
                 </div>
             </article>
         </div>
+
+        <script>
+            const menuBtn = document.getElementById("menu-btn");
+            const responMenu = document.getElementById("header-menu-container");
+            const responMenuList = document.getElementById("header-menu-container-list");
+            var isClicked = false;
+
+            
+            menuBtn.addEventListener("click", function () {
+                if (!isClicked) {
+                    menuBtn.style.position = "fixed";
+
+                    //Responsive Menu
+                    responMenu.style.backgroundColor = "whitesmoke";
+
+                    responMenu.style.display = "flex";
+                    responMenu.style.transition = "opacity 250ms ease-in-out";
+                    responMenu.style.position = "fixed";
+                    responMenu.style.top = "0";
+                    responMenu.style.bottom = "0";
+                    responMenu.style.right = "0";
+                    responMenu.style.left = "0";
+                    responMenu.style.zIndex = "100";
+                    responMenu.style.transition = "transform 250ms cubic-bezier(.5, 0, .5, 1)"
+
+                    responMenuList.style.marginTop = "1rem";
+                    responMenuList.style.display = "flex";
+                    responMenuList.style.flexDirection = "column";
+                    responMenuList.style.alignItems = "center";
+                    responMenuList.style.justifyContent = "start";
+                    responMenuList.style.height = "100%";
+                    // Show the menu with transition
+                    setTimeout(function () {
+                        responMenu.style.opacity = "1";
+                    }, 10); // Delay for transition
+                } else {
+                    // Hide the menu with transition
+                    responMenu.style.opacity = "0";
+                    setTimeout(function () {
+                        responMenu.style.display = "none";
+                    }, 250); // Transition duration
+                }
+                isClicked = !isClicked;
+            });
+        </script>
     </body>
 </html>

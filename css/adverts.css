@@ -129,3 +129,30 @@ h1.page-title {
 
 XX-Large devices (larger desktops, 1400px and up)
 @media (min-width: 1400px) { ... } */
+
+
+/* --------------------- */
+/* ADVERT MENU STYLING */
+/* --------------------- */
+.advert-menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.advert-menu-container .advert-menu {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.advert-menu-container .advert-menu .advert-menu-option {
+    text-decoration: underline;
+    color: #ff4949;
+}
+
+.advert-menu-container .advert-menu .advert-menu-option a {
+    color: #ff4949;
+}
+
+
