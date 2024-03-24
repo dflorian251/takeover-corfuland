@@ -14448,3 +14448,8 @@ dl {
   flex-grow: 1; }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.main-panel form {
+  width: 50%;
+}

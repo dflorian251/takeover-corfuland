@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+    <link rel="stylesheet" href="../../../adverts_operations/style.css">
+
+    <link rel="stylesheet" href="../../../node_modules/nice-forms.css/dist/nice-forms.css">
   </head>
   <body>
     <div class="container-scroller">
@@ -205,9 +208,9 @@
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="admin_post_event.php">Event Posting</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="admin_delete_event.php">Event Deleting</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="admin_approve_event.php">Event Approving</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../events/admin_post_event.php">Event Posting</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../events/admin_delete_event.php">Event Deleting</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../events/admin_approve_event.php">Event Approving</a></li>
                 </ul>
               </div>
             </li>
@@ -218,8 +221,8 @@
               </a>
               <div class="collapse" id="organizers">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="../organizers/admin_add_organizer.php">Add Organizer</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../organizers/admin_delete_organizer.php">Delete Organizer</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../organizers/admin_add_organizer.php">Add Organizer</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../organizers/admin_delete_organizer.php">Delete Organizer</a></li>
                 </ul>
               </div>
             </li>
@@ -230,8 +233,8 @@
               </a>
               <div class="collapse" id="categories">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="../categories/admin_add_category.php">Add Category</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../categories/admin_delete_category.php">Delete Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin_add_category.php">Add Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin_delete_category.php">Delete Category</a></li>
                 </ul>
               </div>
             </li>
@@ -260,99 +263,57 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3> Event Posting </h3>
+              <h3> Add Advert </h3>
             </div>
-        <form action="../../admin_operations/post_event.php" method="post" enctype="multipart/form-data">
-            <!-- Fields for Event Information -->
-            <label for="title">Event Title:</label>
-            <input type="text" name="title" required><br>
+            <form class="nice-form-group" action="../../admin_operations/add_advert.php" method="post" enctype="multipart/form-data">
+                <label for="advert_title">Advert Title:</label>
+                <input type="text" id="advert_title" name="advert_title" required><br>
 
-            <label for="short_desc">Short Description:</label>
-            <input type="text" name="short_desc" required><br>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required><br>
 
-            <label for="long_desc">Long Description:</label>
-            <textarea name="long_desc" rows="4" required></textarea><br>
-            
-            <label for="location">Event Location:</label>
-            <input type="text" name="location" required><br>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required><br>
 
-            <label for="keyword">Keyword:</label>
-            <input type="text" name="keyword" required><br>
+                <label for="show_contact_info">Show Contact Info:</label>
+                <br>
+                <select name="show_contact_info" id="show_contact_info" required>
+                  <option value="1">Phone</option>
+                  <option value="2">Email</option>
+                  <option value="3">Email & Phone</option>
+                </select><br>
 
-            <label for="address">Address:</label>
-            <input type="text" name="address" required><br>
+                <label for="advert_desc">Advert Description:</label><br>
+                <textarea type="text" id="advert_desc" name="advert_desc"  style="height: 200px; width: 350px;" required></textarea><br>
 
-            <label for="longitude">Longitude:</label>
-            <input type="text" name="longitude" required><br>
+                <label for="tag_id">Tag ID:</label>
+                <select name="tag_id" id="tag_id" required>
+                  <?php
+                      $query = "SELECT * FROM tag";
+                      $stmt = $conn->prepare($query); 
+                      // EXECUTING THE QUERY 
+                      $stmt->execute(); 
+                      $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+                      // FETCHING DATA FROM DATABASE 
+                      $result = $stmt->fetchAll();
+                      // Populate the dropdown with organizer IDs
+                      foreach ($result as $row){
+                          echo "<option value=\"{$row['id']}\">{$row['id']} - {$row['name']}</option>";
+                      }
+                  ?>
+                  </select><br>
 
-            <label for="latitude">Latitude:</label>
-            <input type="text" name="latitude" required><br>
+                
+                  <label for="image">Advert Image:</label>
+                  <input type="file" name="image" accept="image/*"><br>
 
-            <label for="date">Start Date:</label>
-            <input type="date" name="start_date" required><br>
+                <input type="submit" value="Add Advert">
+            </form>
 
-            <label for="date">End Date:</label>
-            <input type="date" name="end_date" required><br>
 
-            <label for="url">URL:</label>
-            <input type="text" name="url" required><br>
-
-            <label for="email">Email:</label>
-            <input type="email" name="email" required><br>
-
-            <label for="phone">Phone:</label>
-            <input type="phone" name="phone" required><br>
-
-            <label for="organizer_id">Organizer ID:</label>
-            (id - title)
-            <select name="organizer_id" id="organizer" required>
             <?php
-                $query = "SELECT * FROM organizers";
-                $stmt = $conn->prepare($query); 
-                // EXECUTING THE QUERY 
-                $stmt->execute(); 
-                $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-                // FETCHING DATA FROM DATABASE 
-                $result = $stmt->fetchAll();
-                // Populate the dropdown with organizer IDs
-                foreach ($result as $row){
-                    echo "<option value=\"{$row['id']}\">{$row['id']} - {$row['title']}</option>";
-                }
+                $conn = null;
             ?>
-            </select>
-            <br>
-
-            <label for="category_id">Category ID:</label>
-            (id - name)
-            <select name="category_id" id="category" required>
-            <?php
-                echo 'Ola pane kala';
-                // Fetch existing organizer IDs from the database
-                $query = "SELECT * FROM categories";
-                $stmt = $conn->prepare($query); 
-                // EXECUTING THE QUERY 
-                $stmt->execute(); 
-                $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-                // FETCHING DATA FROM DATABASE 
-                $result = $stmt->fetchAll();
-                // Populate the dropdown with organizer IDs
-                foreach ($result as $row){
-                    echo "<option value=\"{$row['id']}\">{$row['id']} - {$row['name']}</option>";
-                }
-            ?>
-            </select>
-            <br>
-
-            <label for="image">Event Image:</label>
-            <input type="file" name="image" accept="image/*" required><br>
-
-            <input type="submit" value="Post Event">
-        </form>
-
-        <?php
-            // Close the database connection
-            $conn = null;
-        ?>
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
