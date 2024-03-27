@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+
+    <!-- NICE FORMS -->
+    <link rel="stylesheet" href="../../../node_modules/nice-forms.css/dist/nice-forms.css">
   </head>
   <body>
     <div class="container-scroller">
@@ -262,7 +265,7 @@
             <div class="page-header">
               <h3> Event Deleting </h3>
             </div>
-            <form action="../../admin_operations/delete_event.php" method="post">
+            <form class="nice-form-group" action="../../admin_operations/delete_event.php" method="post">
             <label for="event_id">Events:</label>
             (id - title - registration date)
             <select name="event_id" id="events" required>
@@ -283,7 +286,6 @@
             </select>
             <br>
             <input type="hidden" name="_method" value="delete">
-            <br>
             <button type="submit">Delete Event</button>
             </form>
             <?php
