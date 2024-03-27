@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+
+    <!-- NICE FORMS -->
+    <link rel="stylesheet" href="../../../node_modules/nice-forms.css/dist/nice-forms.css">
   </head>
   <body>
     <div class="container-scroller">
@@ -262,7 +265,7 @@
             <div class="page-header">
               <h3> Delete Category </h3>
             </div>
-            <form action="../../admin_operations/delete_category.php" method="post">
+            <form class="nice-form-group" action="../../admin_operations/delete_category.php" method="post">
                     <label for="category_id">Categories:</label>(id - name)
                     <select name="category_id" id="categories" required>
                     <?php

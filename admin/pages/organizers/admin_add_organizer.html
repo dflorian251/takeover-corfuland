@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+
+    <!-- NICE FORMS -->
+    <link rel="stylesheet" href="../../../node_modules/nice-forms.css/dist/nice-forms.css">
   </head>
   <body>
     <div class="container-scroller">
@@ -262,7 +265,7 @@
             <div class="page-header">
               <h3> Add Organizer </h3>
             </div>
-            <form action="../../admin_operations/add_organizer.php" method="post">
+            <form class="nice-form-group" action="../../admin_operations/add_organizer.php" method="post">
                 <label for="name">Organizer Title:</label>
                 <input type="text" id="title" name="title" required><br>
 
@@ -280,7 +283,7 @@
 
                 <label for="name">Organizer Phone:</label>
                 <input type="tel" id="phone" name="phone" required><br>
-
+                <br>
                 <input type="submit" value="Add Organizer">
             </form>
         </div>

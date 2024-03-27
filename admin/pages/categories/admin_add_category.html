@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+
+    <!-- NICE FORMS -->
+    <link rel="stylesheet" href="../../../node_modules/nice-forms.css/dist/nice-forms.css">
   </head>
   <body>
     <div class="container-scroller">
@@ -262,10 +265,10 @@
             <div class="page-header">
               <h3> Add Category </h3>
             </div>
-            <form action="../../admin_operations/add_category.php" method="post">
+            <form class="nice-form-group" action="../../admin_operations/add_category.php" method="post">
                 <label for="name">Category Name:</label>
                 <input type="text" id="name" name="name" required><br>
-
+                <br>
                 <input type="submit" value="Add Category">
             </form>
             <?php
