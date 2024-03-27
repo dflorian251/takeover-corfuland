@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+
+    <!-- NICE FORMS -->
+    <link rel="stylesheet" href="../../../node_modules/nice-forms.css/dist/nice-forms.css">
   </head>
   <body>
     <div class="container-scroller">
@@ -260,30 +263,18 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3> Event Approving </h3>
+              <h3>Adevrt Approving </h3>
             </div>
-            <form action="../../admin_operations/approve_event.php" method="post">
-            <label for="event_id">Events:</label>
-            (id - title - short description - start date - end date)
+            <form class="nice-form-group" action="../../admin_operations/approve_event.php" method="post">
+            <label for="event_id">Adverts:</label>
+            (id - title)
             <select name="event_id" id="events" required>
             <?php
-            try {
-                $query = "SELECT * FROM events WHERE events.approved = 0 ;";
-                $stmt = $conn->prepare($query); 
-                // EXECUTING THE QUERY 
-                $stmt->execute(); 
-                $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-                // FETCHING DATA FROM DATABASE 
-                $result = $stmt->fetchAll();
-                // Populate the dropdown with organizer IDs
-                foreach ($result as $row){
-                    echo "<option value=\"{$row['id']}\">{$row['id']} - {$row['title']} - {$row['short_desc']} - {$row['start_date']}  -{$row['end_date']}</option>";
-                }
+           
             ?>
                 </select>
                 <br>
                 <input type="hidden" name="_method" value="approve">
-                <br>
                 <button type="submit">Approve Event</button>
                 </form>
             </body>
