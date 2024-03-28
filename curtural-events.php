@@ -1,3 +1,12 @@
+<?php 
+require 'conn.php';
+
+$query = "SELECT * FROM events WHERE events.approved = 1 ;";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$r = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+$result = $stmt->fetchAll();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,7 +18,7 @@
         <link rel="stylesheet" href="css/responsive_menu.css">
         <link rel="stylesheet" href="css/responsive_header.css">
 
-        <link rel="stylesheet" href="css/event.css">
+        <link rel="stylesheet" href="css/curtural-events.css">
 
         <script src="https://kit.fontawesome.com/c4f6644410.js" crossorigin="anonymous"></script>
     </head>
@@ -114,62 +123,37 @@
             </ul>
         </div>
 
-        <div class="article-container">
-            <article>
-                <div class="event-header">
-                    <h2 class="event-title">‘L’alegria que passa’ [The Joy that Happens]</h2>
-                    <a class="event-location" href="#" target="_blank">Corfu</a>
-                    <p class="event-date"><span class="fa-solid fa-calendar fa-icon"></span>
-                    <!-- From
-                    <?php 
-                    $databaseDate = DateTime::createFromFormat('Y-m-d', $row['start_date']);
-                    $start_date = $databaseDate->format('d/m/Y');
-                    echo str_replace('-','/',$start_date)
-                    ?> 
-                    to 
-                    <?php 
-                    $databaseDate = DateTime::createFromFormat('Y-m-d', $row['end_date']);
-                    $end_date = $databaseDate->format('d/m/Y');
-                    echo str_replace('-','/',$end_date)?> -->
-                    From 03/03/24 - 05/05/24
-                    </p>
-                </div>
-                <div class="event-body">
-                    <div class="event-content">
-                        <div class="event-image">
-                            <!-- <img src="data:image/png;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>"> -->
-                            <img src="images/background.jpg">
+        <h1 class="page-title">Curtural Events</h1>
+        <div class="curtural-events-container">
+            <ul class="curtural-events">
+                <?php 
+                foreach($result as $row){ 
+                ?>
+                <li class="curtural-event">
+                    <article>
+                        <div class="curtural-event-image">
+                            <img src="data:image/png;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>"/>
                         </div>
-                        <p class="event-short-desc"><strong>Dance.</strong>Short Description</p>
-                        <p class="event-long-desc">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis reiciendis provident quas sed voluptas assumenda facilis, ipsam, nostrum consequuntur doloremque saepe dolorem ratione, modi natus ducimus inventore error perspiciatis fugiat!
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio perferendis laborum quos quae, facilis eos totam veritatis consequatur similique ipsum corporis alias qui ut nisi laboriosam nihil numquam praesentium. Culpa.
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut nobis, harum, iste, quae omnis possimus impedit voluptatibus libero laborum officia quia explicabo perspiciatis. Quod aspernatur deleniti voluptas non at ipsa!   
-                        </p>
-                    </div>
-                    <div class="event-info">
-                        <div class="event-info-details">
-                            <i class="fa-solid fa-phone"></i>
-                            <div class="phone">
-                                <dt>Phone number</dt>
-                                <dd>Tel.: 6987990842</dd>
-                            </div>
+                        <div class="curtural-event-info">
+                            <a class="curtural-event-title" href="event.php?id=<?=$row['id']?>"><?php echo $row["title"];?></a>
+                            <p class="curtural-event-short-desc">
+                                <strong><?php echo $row["keyword"]?>. </strong>
+                                <?php echo $row['short_desc'] ?>
+                            </p>
+                            <ul>
+                                <li class="curtural-event-when"><span class="curtural-event-label">When:</span> <?php echo $row['start_date']?> - <?php echo $row['end_date'] ?></li>
+                                <li class="curtural-event-where"><span class="curtural-event-label">Where:</span><?php echo $row['location']?></li>
+                            </ul>
                         </div>
-                        <div class="event-info-map">
-                            <iframe src="https://maps.google.com/maps?q=51.41914,44.89348&hl=gr&z=14&amp;output=embed" width="375" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            <div class="location-details">
-                                <p>Location</p>
-                                <span>Address: </span>Isokratous 14<br>
-                                <span>Districte: </span>Ciutat Vella<br>
-                                <span>Neighborhood: </span>Sant Pere, Santa Caterina i la Ribera
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a target="_blank" href="./show_interest.php?id=<?=$row['id']?>"><button>Ενδιαφέρομαι</button></a>
-            </article>
+                    </article>
+                </li>
+                <?php 
+                    }
+                    $conn = null;
+                ?>
+            </ul>
         </div>
-    
+
         <script>
             const menuBtn = document.getElementById("menu-btn");
             const responMenu = document.getElementById("header-menu-container");

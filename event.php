@@ -1,7 +1,22 @@
+<?php 
+    require 'conn.php';
+
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $query = "SELECT * FROM events WHERE events.id = $id;";
+        $stmt = $conn->prepare($query); 
+        $stmt->execute(); 
+        $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+        $result = $stmt->fetchAll(); 
+    } 
+?>
+<?php
+    foreach ($result as $row) {
+?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Curtural Events</title>
+        <title><?php echo $row['title'];?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">  
@@ -9,7 +24,7 @@
         <link rel="stylesheet" href="css/responsive_menu.css">
         <link rel="stylesheet" href="css/responsive_header.css">
 
-        <link rel="stylesheet" href="css/curtural-events.css">
+        <link rel="stylesheet" href="css/event.css">
 
         <script src="https://kit.fontawesome.com/c4f6644410.js" crossorigin="anonymous"></script>
     </head>
@@ -114,87 +129,65 @@
             </ul>
         </div>
 
-        <h1 class="page-title">Curtural Events</h1>
-        <div class="curtural-events-container">
-            <ul class="curtural-events">
-                <li class="curtural-event">
-                    <article>
-                        <div class="curtural-event-image">
-                            <img src="images/background.jpg">
-                        </div>
-                        <div class="curtural-event-info">
-                            <a class="curtural-event-title">‘L’alegria que passa’ [The Joy that Happens]</a>
-                            <p class="curtural-event-short-desc">
-                                <strong>KEYWORD.</strong>
-                                Dagoll Dagom brings a new classic of Catalan literature to contemporary times through dance, music and theatre.
-                            </p>
-                            <ul>
-                                <li class="curtural-event-when"><span class="curtural-event-label">When:</span> 2023-12-15 - 2023-12-17</li>
-                                <li class="curtural-event-where"><span class="curtural-event-label">Where:</span>Teatre Poliorama</li>
-                            </ul>
-                        </div>
-                    </article>
-                </li>
-                <!-- 2 -->
-                <li class="curtural-event">
-                    <article>
-                        <div class="curtural-event-image">
-                            <img src="images/background.jpg">
-                        </div>
-                        <div class="curtural-event-info">
-                            <a class="curtural-event-title">‘L’alegria que passa’ [The Joy that Happens]</a>
-                            <p class="curtural-event-short-desc">
-                                <strong>KEYWORD.</strong>
-                                Dagoll Dagom brings a new classic of Catalan literature to contemporary times through dance, music and theatre.
-                            </p>
-                            <ul>
-                                <li class="curtural-event-when"><span class="curtural-event-label">When:</span> 2023-12-15 - 2023-12-17</li>
-                                <li class="curtural-event-where"><span class="curtural-event-label">Where:</span>Teatre Poliorama</li>
-                            </ul>
-                        </div>
-                    </article>
-                </li>
-                <!-- 3 -->
-                <li class="curtural-event">
-                    <article>
-                        <div class="curtural-event-image">
-                            <img src="images/background.jpg">
-                        </div>
-                        <div class="curtural-event-info">
-                            <a class="curtural-event-title">‘L’alegria que passa’ [The Joy that Happens]</a>
-                            <p class="curtural-event-short-desc">
-                                <strong>KEYWORD.</strong>
-                                Dagoll Dagom brings a new classic of Catalan literature to contemporary times through dance, music and theatre.
-                            </p>
-                            <ul>
-                                <li class="curtural-event-when"><span class="curtural-event-label">When:</span> 2023-12-15 - 2023-12-17</li>
-                                <li class="curtural-event-where"><span class="curtural-event-label">Where:</span>Teatre Poliorama</li>
-                            </ul>
-                        </div>
-                    </article>
-                </li>
-                <!-- 4 -->
-                <li class="curtural-event">
-                    <article>
-                        <div class="curtural-event-image">
-                            <img src="images/background.jpg">
-                        </div>
-                        <div class="curtural-event-info">
-                            <a class="curtural-event-title">‘L’alegria que passa’ [The Joy that Happens]</a>
-                            <p class="curtural-event-short-desc">
-                                <strong>KEYWORD.</strong>
-                                Dagoll Dagom brings a new classic of Catalan literature to contemporary times through dance, music and theatre.
-                            </p>
-                            <ul>
-                                <li class="curtural-event-when"><span class="curtural-event-label">When:</span> 2023-12-15 - 2023-12-17</li>
-                                <li class="curtural-event-where"><span class="curtural-event-label">Where:</span>Teatre Poliorama</li>
-                            </ul>
-                        </div>
-                    </article>
-                </li>
-            </ul>
-        </div>
+        <div class="article-container">
+            <article>
 
+                <div class="event-header">
+                    <h2 class="event-title"><?php echo $row['title']; ?></h2>
+                    <a class="event-location" href="#" target="_blank"><?php echo $row['location'];?></a>
+                    <p class="event-date"><span class="fa-solid fa-calendar fa-icon"></span>
+                    <!-- From
+                    <?php 
+                    $databaseDate = DateTime::createFromFormat('Y-m-d', $row['start_date']);
+                    $start_date = $databaseDate->format('d/m/Y');
+                    echo str_replace('-','/',$start_date)
+                    ?> 
+                    to 
+                    <?php 
+                    $databaseDate = DateTime::createFromFormat('Y-m-d', $row['end_date']);
+                    $end_date = $databaseDate->format('d/m/Y');
+                    echo str_replace('-','/',$end_date)?> -->
+                    From 03/03/24 - 05/05/24
+                    </p>
+                </div>
+                <div class="event-body">
+                    <div class="event-content">
+                        <div class="event-image">
+                            <img src="data:image/png;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>">
+                        </div>
+                        <p class="event-short-desc"><strong><?php echo $row['keyword'] ?>.</strong><?php echo $row['short_desc']?></p>
+                        <p class="event-long-desc">
+                        <?php
+                            echo nl2br($row['long_desc']); 
+                        ?>   
+                        </p>
+                    </div>
+                    <div class="event-info">
+                        <div class="event-info-details">
+                            <i class="fa-solid fa-phone"></i>
+                            <div class="phone">
+                                <dt>Phone number</dt>
+                                <dd>Tel.: <?php echo $row['phone']?></dd>
+                            </div>
+                        </div>
+                        <div class="event-info-map">
+                        <iframe src="https://maps.google.com/maps?q=<?php echo $row['latitude']?>,<?php  echo $row['longitude']?>&hl=gr&z=14&amp;output=embed" width="310" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="location-details">
+                                <p>Location</p>
+                                <span>Address: </span><?php echo $row['address']?><br>
+                                <span>Districte: </span>Ciutat Vella<br>
+                                <span>Neighborhood: </span>Sant Pere, Santa Caterina i la Ribera
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a target="_blank" href="./show_interest.php?id=<?=$row['id']?>"><button>Ενδιαφέρομαι</button></a>
+            </article>
+        </div>
+<?php
+    }
+    $conn = null;
+?>
         <script>
             const menuBtn = document.getElementById("menu-btn");
             const responMenu = document.getElementById("header-menu-container");
