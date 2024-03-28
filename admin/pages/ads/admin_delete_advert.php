@@ -278,7 +278,7 @@
             <div class="page-header">
               <h3> Delete Advert </h3>
             </div>
-            <form class="nice-form-group" action="../../admin_operations/" method="post" enctype="multipart/form-data">
+            <form class="nice-form-group" action="../../admin_operations/delete_advert.php" method="post">
                 <label>Adverts:</label>
                 (id - title)
                 <select name="advert_id" id="adverts" required>
