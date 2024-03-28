@@ -1,14 +1,13 @@
 <?php
-  require "../../../conn.html";
+  require "../../../conn.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Add Category</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -250,7 +249,7 @@
                   <li class="nav-item"> <a class="nav-link" href="#">Delete Advert</a></li>
                 </ul>
               </div>
-            </li>            
+            </li>
             <!-- SEEMED USELESS AT THE TIME-->
             <!-- <li class="nav-item sidebar-actions">
               <span class="nav-link">
@@ -276,36 +275,17 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3> Delete Category </h3>
+              <h3> Add Category </h3>
             </div>
-            <form class="nice-form-group" action="../../admin_operations/delete_category.html" method="post">
-                    <label for="category_id">Categories:</label>(id - name)
-                    <select name="category_id" id="categories" required>
-                    <?php
-                    try {
-                        $query = "SELECT * FROM categories;";
-                        $stmt = $conn->prepare($query); 
-                        // EXECUTING THE QUERY 
-                        $stmt->execute(); 
-                        $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-                        // FETCHING DATA FROM DATABASE 
-                        $result = $stmt->fetchAll();
-                        // Populate the dropdown with organizer IDs
-                        foreach ($result as $row){
-                            echo "<option value=\"{$row['id']}\">{$row['id']} - {$row['name']}</option>";
-                        }
-                    ?>
-                    </select>
-                    <br>
-                    <input type="hidden" name="_method" value="delete">
-                    <button type="submit">Delete Category</button>
-                </form>
-                <?php
-                } catch(PDOException $e) {
-                    echo $e->getMessage();
-                } 
+            <form class="nice-form-group" action="../../admin_operations/add_category.php" method="post">
+                <label for="name">Category Name:</label>
+                <input type="text" id="name" name="name" required><br>
+                <br>
+                <input type="submit" value="Add Category">
+            </form>
+            <?php
                 $conn = null;
-                ?>
+            ?>
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
