@@ -1,7 +1,6 @@
 <?php
-  require "../../../conn.html";
+  require "../../../conn.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -277,50 +276,24 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3> Add Advert </h3>
+              <h3> Delete Advert </h3>
             </div>
-            <form class="nice-form-group" action="../../admin_operations/add_advert.html" method="post" enctype="multipart/form-data">
-                <label for="advert_title">Advert Title:</label>
-                <input type="text" id="advert_title" name="advert_title" required><br>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
-
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone" required><br>
-
-                <label for="show_contact_info">Show Contact Info:</label>
-                <select name="show_contact_info" id="show_contact_info" required>
-                  <option value="1">Phone</option>
-                  <option value="2">Email</option>
-                  <option value="3">Email & Phone</option>
+            <form class="nice-form-group" action="../../admin_operations/" method="post" enctype="multipart/form-data">
+                <label>Adverts:</label>
+                (id - title)
+                <select name="advert_id" id="adverts" required>
+                <?php
+                  $query = "SELECT * FROM advert;";
+                  $stmt = $conn->prepare($query); 
+                  $stmt->execute(); 
+                  $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+                  $result = $stmt->fetchAll();
+                  foreach ($result as $row){
+                      echo "<option value=\"{$row['advert_id']}\">{$row['advert_id']} - {$row['advert_title']} - {$row['registrationDate']}</option>";
+                  }
+                ?>
                 </select><br>
-
-                <label for="advert_desc">Advert Description:</label>
-                <textarea type="text" id="advert_desc" name="advert_desc"  style="height: 200px; width: 350px;" required></textarea><br>
-
-                <label for="tag_id">Tag ID:</label>
-                <select name="tag_id" id="tag_id" required>
-                  <?php
-                      $query = "SELECT * FROM tag";
-                      $stmt = $conn->prepare($query); 
-                      // EXECUTING THE QUERY 
-                      $stmt->execute(); 
-                      $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-                      // FETCHING DATA FROM DATABASE 
-                      $result = $stmt->fetchAll();
-                      // Populate the dropdown with organizer IDs
-                      foreach ($result as $row){
-                          echo "<option value=\"{$row['id']}\">{$row['id']} - {$row['name']}</option>";
-                      }
-                  ?>
-                  </select><br>
-
-                
-                  <label for="image">Advert Image:</label>
-                  <input type="file" name="image" accept="image/*"><br>
-
-                <input type="submit" value="Add Advert">
+                <input type="submit" value="Delete Advert">
             </form>
 
 

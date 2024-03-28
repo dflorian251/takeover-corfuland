@@ -33,7 +33,7 @@ try {
             $count_adverts_id = $stmt->fetchColumn();
 
             // Insert a new event
-            $query = $conn->prepare("INSERT INTO `advert`(`advert_id`, `advert_title`, `email`, `phone`, `show_contact_info`, `advert_desc`, `tag_id`, `advert_image`, `registrationDate`, `approved`) VALUES (:advert_id, :advert_title, :email, :phone, :show_contact_info, :advert_desc, :tag_id, :image, CURRENT_TIMESTAMP, 0)");
+            $query = $conn->prepare("INSERT INTO `advert`(`advert_id`, `advert_title`, `email`, `phone`, `show_contact_info`, `advert_desc`, `tag_id`, `advert_image`, `registrationDate`) VALUES (:advert_id, :advert_title, :email, :phone, :show_contact_info, :advert_desc, :tag_id, :image, CURRENT_TIMESTAMP)");
 
             $count_adverts_id = $count_adverts_id + 1;
 

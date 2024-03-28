@@ -286,12 +286,9 @@
             try {
                 $query = "SELECT * FROM events;";
                 $stmt = $conn->prepare($query); 
-                // EXECUTING THE QUERY 
                 $stmt->execute(); 
                 $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-                // FETCHING DATA FROM DATABASE 
                 $result = $stmt->fetchAll();
-                // Populate the dropdown with organizer IDs
                 foreach ($result as $row){
                     echo "<option value=\"{$row['id']}\">{$row['id']} - {$row['title']} - {$row['registrationDate']}</option>";
                 }
