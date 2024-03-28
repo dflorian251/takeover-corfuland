@@ -138,6 +138,7 @@
                     <div class="advert-date"><span class="fa-solid fa-calendar fa-icon"></span> <?php echo $row['registrationDate']; ?></div>
                     <h2 class="advert-title"><?php echo $row['advert_title']; ?></h2>
                     <div class="advert-tags">
+                        <!-- MUST DISPLAY THE TAGS AND HERE -->
                         <a>ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
                         <a>ΣΕΖΟΝ</a>
                     </div>

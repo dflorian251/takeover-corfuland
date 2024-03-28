@@ -1,5 +1,5 @@
 <?php
-  require "../../../conn.php";
+  require "../../../conn.html";
 ?>
 
 <!DOCTYPE html>
@@ -209,9 +209,9 @@
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="../events/admin_post_event.php">Event Posting</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../events/admin_delete_event.php">Event Deleting</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../events/admin_approve_event.php">Event Approving</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../events/admin_post_event.html">Event Posting</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../events/admin_delete_event.html">Event Deleting</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../events/admin_approve_event.html">Event Approving</a></li>
                 </ul>
               </div>
             </li>
@@ -222,8 +222,8 @@
               </a>
               <div class="collapse" id="organizers">
                 <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../organizers/admin_add_organizer.php">Add Organizer</a></li>
-                <li class="nav-item"> <a class="nav-link" href="../organizers/admin_delete_organizer.php">Delete Organizer</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../organizers/admin_add_organizer.html">Add Organizer</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../organizers/admin_delete_organizer.html">Delete Organizer</a></li>
                 </ul>
               </div>
             </li>
@@ -234,8 +234,8 @@
               </a>
               <div class="collapse" id="categories">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="admin_add_category.php">Add Category</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="admin_delete_category.php">Delete Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin_add_category.html">Add Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin_delete_category.html">Delete Category</a></li>
                 </ul>
               </div>
             </li>
@@ -247,7 +247,7 @@
               </a>
               <div class="collapse" id="ad_posts">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ads/admin_add_advert.php">Add Advert</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ads/admin_add_advert.html">Add Advert</a></li>
                   <li class="nav-item"> <a class="nav-link" href="#">Delete Advert</a></li>
                 </ul>
               </div>
@@ -279,7 +279,7 @@
             <div class="page-header">
               <h3> Add Advert </h3>
             </div>
-            <form class="nice-form-group" action="../../admin_operations/add_advert.php" method="post" enctype="multipart/form-data">
+            <form class="nice-form-group" action="../../admin_operations/add_advert.html" method="post" enctype="multipart/form-data">
                 <label for="advert_title">Advert Title:</label>
                 <input type="text" id="advert_title" name="advert_title" required><br>
 

@@ -8,7 +8,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Event Posting</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+
 
     <!-- NICE FORMS -->
     <link rel="stylesheet" href="../../../node_modules/nice-forms.css/dist/nice-forms.css">
@@ -208,9 +209,9 @@
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="admin_post_event.php">Event Posting</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="admin_delete_event.php">Event Deleting</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="admin_approve_event.php">Event Approving</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin_post_event.html">Event Posting</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin_delete_event.html">Event Deleting</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin_approve_event.html">Event Approving</a></li>
                 </ul>
               </div>
             </li>
@@ -221,8 +222,8 @@
               </a>
               <div class="collapse" id="organizers">
                 <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../organizers/admin_add_organizer.php">Add Organizer</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../organizers/admin_delete_organizer.php">Delete Organizer</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../organizers/admin_add_organizer.html">Add Organizer</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../organizers/admin_delete_organizer.html">Delete Organizer</a></li>
                 </ul>
               </div>
             </li>
@@ -233,8 +234,21 @@
               </a>
               <div class="collapse" id="categories">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="../categories/admin_add_category.php">Add Category</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../categories/admin_delete_category.php">Delete Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../categories/admin_add_category.html">Add Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../categories/admin_delete_category.html">Delete Category</a></li>
+                </ul>
+              </div>
+            </li>
+            <!-- ADS -->
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ad_posts" aria-expanded="false">
+              <span class="menu-title">Ads</span>
+              <i class="mdi mdi-contacts menu-icon"></i>
+              </a>
+              <div class="collapse" id="ad_posts">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="pages/ads/admin_add_advert.html">Add Advert</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="#">Delete Advert</a></li>
                 </ul>
               </div>
             </li>
@@ -263,28 +277,99 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3>Adevrt Approving </h3>
+              <h3> Event Posting </h3>
             </div>
-            <form class="nice-form-group" action="../../admin_operations/approve_event.php" method="post">
-            <label for="event_id">Adverts:</label>
-            (id - title)
-            <select name="event_id" id="events" required>
-            <?php
-           
-            ?>
-                </select>
-                <br>
-                <input type="hidden" name="_method" value="approve">
-                <button type="submit">Approve Event</button>
-                </form>
-            </body>
-            <?php
-            } catch(PDOException $e) {
-                echo $e->getMessage();
-            } 
+        <form class="nice-form-group" action="../../admin_operations/post_event.php" method="post" enctype="multipart/form-data">
+            <!-- Fields for Event Information -->
+            <label for="title">Event Title:</label>
+            <input type="text" name="title" required><br>
 
-            $conn = null;
+            <label for="short_desc">Short Description:</label>
+            <input type="text" name="short_desc" required><br>
+
+            <label for="long_desc">Long Description:</label>
+            <textarea name="long_desc" rows="4" required></textarea><br>
+            
+            <label for="location">Event Location:</label>
+            <input type="text" name="location" required><br>
+
+            <label for="keyword">Keyword:</label>
+            <input type="text" name="keyword" required><br>
+
+            <label for="address">Address:</label>
+            <input type="text" name="address" required><br>
+
+            <label for="longitude">Longitude:</label>
+            <input type="text" name="longitude" required><br>
+
+            <label for="latitude">Latitude:</label>
+            <input type="text" name="latitude" required><br>
+
+            <label for="date">Start Date:</label>
+            <input type="date" name="start_date" required><br>
+
+            <label for="date">End Date:</label>
+            <input type="date" name="end_date" required><br>
+
+            <label for="url">URL:</label>
+            <input type="text" name="url" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required><br>
+
+            <label for="phone">Phone:</label>
+            <input type="phone" name="phone" required><br>
+
+            <label for="organizer_id">Organizer ID:</label>
+            (id - title)
+            <select name="organizer_id" id="organizer" required>
+            <?php
+                $query = "SELECT * FROM organizers";
+                $stmt = $conn->prepare($query); 
+                // EXECUTING THE QUERY 
+                $stmt->execute(); 
+                $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+                // FETCHING DATA FROM DATABASE 
+                $result = $stmt->fetchAll();
+                // Populate the dropdown with organizer IDs
+                foreach ($result as $row){
+                    echo "<option value=\"{$row['id']}\">{$row['id']} - {$row['title']}</option>";
+                }
             ?>
+            </select>
+            <br>
+
+            <label for="category_id">Category ID:</label>
+            (id - name)
+            <select name="category_id" id="category" required>
+            <?php
+                echo 'Ola pane kala';
+                // Fetch existing organizer IDs from the database
+                $query = "SELECT * FROM categories";
+                $stmt = $conn->prepare($query); 
+                // EXECUTING THE QUERY 
+                $stmt->execute(); 
+                $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+                // FETCHING DATA FROM DATABASE 
+                $result = $stmt->fetchAll();
+                // Populate the dropdown with organizer IDs
+                foreach ($result as $row){
+                    echo "<option value=\"{$row['id']}\">{$row['id']} - {$row['name']}</option>";
+                }
+            ?>
+            </select>
+            <br>
+
+            <label for="image">Event Image:</label>
+            <input type="file" name="image" accept="image/*" required><br>
+
+            <input type="submit" value="Post Event">
+        </form>
+
+        <?php
+            // Close the database connection
+            $conn = null;
+        ?>
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->

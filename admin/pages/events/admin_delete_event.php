@@ -8,7 +8,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Event Deletion</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -208,9 +208,9 @@
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="admin_post_event.php">Event Posting</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="admin_delete_event.php">Event Deleting</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="admin_approve_event.php">Event Approving</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin_post_event.html">Event Posting</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin_delete_event.html">Event Deleting</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin_approve_event.html">Event Approving</a></li>
                 </ul>
               </div>
             </li>
@@ -221,8 +221,8 @@
               </a>
               <div class="collapse" id="organizers">
                 <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../organizers/admin_add_organizer.php">Add Organizer</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../organizers/admin_delete_organizer.php">Delete Organizer</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../organizers/admin_add_organizer.html">Add Organizer</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../organizers/admin_delete_organizer.html">Delete Organizer</a></li>
                 </ul>
               </div>
             </li>
@@ -233,8 +233,8 @@
               </a>
               <div class="collapse" id="categories">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="../categories/admin_add_category.php">Add Category</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../categories/admin_delete_category.php">Delete Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../categories/admin_add_category.html">Add Category</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../categories/admin_delete_category.html">Delete Category</a></li>
                 </ul>
               </div>
             </li>
@@ -246,7 +246,7 @@
               </a>
               <div class="collapse" id="ad_posts">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ads/admin_add_advert.php">Add Advert</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ads/admin_add_advert.html">Add Advert</a></li>
                   <li class="nav-item"> <a class="nav-link" href="#">Delete Advert</a></li>
                 </ul>
               </div>
