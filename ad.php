@@ -1,6 +1,24 @@
+<?php
+    require 'conn.php';
+
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $query = "SELECT * FROM advert WHERE advert_id  = $id;";
+        $stmt = $conn->prepare($query); 
+        // EXECUTING THE QUERY 
+        $stmt->execute(); 
+        $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+        // FETCHING DATA FROM DATABASE 
+        $result = $stmt->fetchAll(); 
+    }
+?>
+<?php
+    foreach ($result as $row){ 
+?>
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Αγγελίες - <?php echo $row['advert_title']; ?></title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,12 +26,10 @@
 
         <link rel="stylesheet" href="css/responsive_menu.css">
         <link rel="stylesheet" href="css/responsive_header.css">
-        <link rel="stylesheet" href="css/adverts.css">
+        <link rel="stylesheet" href="css/ad.css">
 
-        <title>Αγγελίες</title>
+        <script src="https://kit.fontawesome.com/c4f6644410.js" crossorigin="anonymous"></script>
     </head>
-
-    
     <body>
         <header class="header">
             <ul type="none">
@@ -115,75 +131,59 @@
             </ul>
         </div>
 
-        <div class="advert-menu-container">
-            <ul class="advert-menu">
-                <li class="advert-menu-option"><a href="#">ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</a></li>
-                <li class="advert-menu-option"><a href="#">ΕΠΕΞΕΡΓΑΣΙΑ ΑΓΓΕΛΙΑΣ</a></li>
-                <li class="advert-menu-option"><a href="#">ΔΙΑΓΡΑΦΗ ΑΓΓΕΛΙΑΣ</a></li>
-            </ul>
-        </div>
-        
 
-        <h1 class="page-title">ADVERTS</h1>
-        <div class="adverts-container">
-            <ul class="adverts">
-                <li class="advert">
-                    <article>
-                        <div class="advert-date">22/03/24</div>
-                        <a href="#" class="advert-title">Νοικιάζεται γκαρσιονιέρα στην παλιά πόλη</a>
-                        <div class="advert-tags">
-                            <a href="#" rel="tag">ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
+        <div class="advert-container">
+            <article>
+                <div class="advert-header">
+                    <div class="advert-date"><span class="fa-solid fa-calendar fa-icon"></span> <?php echo $row['registrationDate']; ?></div>
+                    <h2 class="advert-title"><?php echo $row['advert_title']; ?></h2>
+                    <div class="advert-tags">
+                        <a>ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
+                        <a>ΣΕΖΟΝ</a>
+                    </div>
+                </div>
+                <div class="advert-content">
+                    <div class="advert-description">
+                    <?php
+                        echo $row["advert_desc"];
+                    ?>
+                    </div>
+                    <div class="advert-images">
+                        <div class="advert-image">
+                            <img src="data:image/png;charset=utf8;base64,<?php echo base64_encode($row['advert_image']); ?>">
                         </div>
-                    </article>
-                </li>
-                <li class="advert">
-                    <article>
-                        <div class="advert-date">22/03/24</div>
-                        <a href="#" class="advert-title">Νοικιάζεται γκαρσιονιέρα στην παλιά πόλη</a>
-                        <div class="advert-tags">
-                            <a href="#" rel="tag">ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
-                        </div>
-                    </article>
-                </li>
-                <li class="advert">
-                    <article>
-                        <div class="advert-date">22/03/24</div>
-                        <a href="#" class="advert-title">Νοικιάζεται γκαρσιονιέρα στην παλιά πόλη</a>
-                        <div class="advert-tags">
-                            <a href="#" rel="tag">ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
-                        </div>
-                    </article>
-                </li>
-                <li class="advert">
-                    <article>
-                        <div class="advert-date">22/03/24</div>
-                        <a href="#" class="advert-title">Νοικιάζεται γκαρσιονιέρα στην παλιά πόλη</a>
-                        <div class="advert-tags">
-                            <a href="#" rel="tag">ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
-                        </div>
-                    </article>
-                </li>
-                <li class="advert">
-                    <article>
-                        <div class="advert-date">22/03/24</div>
-                        <a href="#" class="advert-title">Νοικιάζεται γκαρσιονιέρα στην παλιά πόλη</a>
-                        <div class="advert-tags">
-                            <a href="#" rel="tag">ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
-                        </div>
-                    </article>
-                </li>
-                <li class="advert">
-                    <article>
-                        <div class="advert-date">22/03/24</div>
-                        <a href="#" class="advert-title">Νοικιάζεται γκαρσιονιέρα στην παλιά πόλη</a>
-                        <div class="advert-tags">
-                            <a href="#" rel="tag">ΔΙΑΜΕΡΙΣΜΑΤΑ ASD</a>
-                        </div>
-                    </article>
-                </li>
-                
-            </ul>
+                    </div>
+                    <!-- CONTACT INFO SECTION MUST BE ADDED -->
+                    <?php 
+                        if ($row["show_contact_info"] == 1) {
+                    ?>
+                    Phone:
+                    <?php
+                        echo $row["phone"];
+                    } elseif ($row["show_contact_info"] == 2) {
+                    ?>
+                    Email:
+                    <?php
+                        echo $row["email"];
+                    } else {
+                    ?>
+                    Phone:
+                    <?php
+                        echo $row["phone"];
+                    ?>
+                    <br>
+                    Email:
+                    <?php
+                        echo $row["email"];
+                    }
+                    ?>
+                </div>
+            </article>
         </div>
+<?php
+    }
+    $conn = null;
+?>
 
         <script>
             const menuBtn = document.getElementById("menu-btn");

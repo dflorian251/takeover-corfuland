@@ -1,3 +1,11 @@
+<?php
+    require 'conn.php';
+    $query = "SELECT * FROM advert;";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $r = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $result = $stmt->fetchAll();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,10 +16,12 @@
 
         <link rel="stylesheet" href="css/responsive_menu.css">
         <link rel="stylesheet" href="css/responsive_header.css">
-        <link rel="stylesheet" href="css/ad.css">
+        <link rel="stylesheet" href="css/adverts.css">
 
-        <script src="https://kit.fontawesome.com/c4f6644410.js" crossorigin="anonymous"></script>
+        <title>Αγγελίες</title>
     </head>
+
+    
     <body>
         <header class="header">
             <ul type="none">
@@ -113,29 +123,47 @@
             </ul>
         </div>
 
+        <div class="advert-menu-container">
+            <ul class="advert-menu">
+                <li class="advert-menu-option"><a href="#">ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</a></li>
+                <li class="advert-menu-option"><a href="#">ΕΠΕΞΕΡΓΑΣΙΑ ΑΓΓΕΛΙΑΣ</a></li>
+                <li class="advert-menu-option"><a href="#">ΔΙΑΓΡΑΦΗ ΑΓΓΕΛΙΑΣ</a></li>
+            </ul>
+        </div>
+        
 
-        <div class="advert-container">
-            <article>
-                <div class="advert-header">
-                    <div class="advert-date"><span class="fa-solid fa-calendar fa-icon"></span> 22/03/24</div>
-                    <h2 class="advert-title">Νοικιάζεται γκαρσιονιέρα στην παλιά πόλη</h2>
-                    <div class="advert-tags">
-                        <a>ΔΙΑΜΕΡΙΣΜΑΤΑ</a>
-                        <a>ΣΕΖΟΝ</a>
-                    </div>
-                </div>
-                <div class="advert-content">
-                    <div class="advert-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Expedita ipsum, labore ad adipisci necessitatibus, illo nam autem,
-                        voluptatum perspiciatis temporibus deserunt molestiae ullam accusantium laborum esse similique!
-                        Culpa, ex recusandae.
-                    </div>
-                    <div class="advert-images">
-                        <div class="advert-image"><img src="images/background.jpg"></div>
-                    </div>
-                </div>
-            </article>
+        <h1 class="page-title">ADVERTS</h1>
+        <div class="adverts-container">
+            <ul class="adverts">
+                <?php
+                    foreach ($result as $row) {
+                ?>
+                <li class="advert">
+                    <article>
+                        <div class="advert-date"><?php echo $row['registrationDate']; ?></div>
+                        <a href="ad.php?id=<?=$row['advert_id'];?>" class="advert-title"><?php echo $row['advert_title']; ?></a>
+                        <div class="advert-tags">
+                            <a href="#" rel="tag">
+                            <?php 
+                                $tagID = $row["tag_id"];
+                                $query = "SELECT * FROM tag WHERE id = $tagID";
+                                $stmt = $conn->prepare($query); 
+                                $stmt->execute(); 
+                                $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+                                $result_tag = $stmt->fetchAll(); 
+                                foreach ($result_tag as $row_tag) {
+                                    echo $row_tag["name"];
+                                }
+                            ?>
+                            </a>
+                        </div>
+                    </article>
+                </li>
+                <?php
+                    }
+                    $conn = null;
+                ?>
+            </ul>
         </div>
 
         <script>
