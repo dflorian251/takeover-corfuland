@@ -1,14 +1,13 @@
 <?php
-  require "../../../conn.html";
+  require "../../../conn.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Add Organizer</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -221,7 +220,7 @@
               </a>
               <div class="collapse" id="organizers">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="admin_add_organizer.html">Add Organizer</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin_add_organizer.php">Add Organizer</a></li>
                   <li class="nav-item"> <a class="nav-link" href="admin_delete_organizer.html">Delete Organizer</a></li>
                 </ul>
               </div>
@@ -278,7 +277,7 @@
             <div class="page-header">
               <h3> Add Organizer </h3>
             </div>
-            <form class="nice-form-group" action="../../admin_operations/add_organizer.html" method="post">
+            <form class="nice-form-group" action="../../admin_operations/add_organizer.php" method="post">
                 <label for="name">Organizer Title:</label>
                 <input type="text" id="title" name="title" required><br>
 
@@ -295,7 +294,7 @@
                 <input type="email" id="email" name="email" required><br>
 
                 <label for="name">Organizer Phone:</label>
-                <input type="tel" id="phone" name="phone" required><br>
+                <input type="tel" id="phone" name="phone" required pattern="^(2\d{9}|6\d{9})$"><br>
                 <br>
                 <input type="submit" value="Add Organizer">
             </form>

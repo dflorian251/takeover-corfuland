@@ -222,7 +222,7 @@
               </a>
               <div class="collapse" id="organizers">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="../organizers/admin_add_organizer.html">Add Organizer</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../organizers/admin_add_organizer.php">Add Organizer</a></li>
                   <li class="nav-item"> <a class="nav-link" href="../organizers/admin_delete_organizer.html">Delete Organizer</a></li>
                 </ul>
               </div>
@@ -299,11 +299,11 @@
             <label for="address">Address:</label>
             <input type="text" name="address" required><br>
 
-            <label for="longitude">Longitude:</label>
-            <input type="text" name="longitude" required><br>
-
             <label for="latitude">Latitude:</label>
-            <input type="text" name="latitude" required><br>
+            <input type="text" name="latitude" required pattern="^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?)$"><br>
+
+            <label for="longitude">Longitude:</label>
+            <input type="text" name="longitude" required pattern="^[-+]?((180(\.0+)?)|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$"><br>
 
             <label for="date">Start Date:</label>
             <input type="date" name="start_date" required><br>
@@ -318,7 +318,7 @@
             <input type="email" name="email" required><br>
 
             <label for="phone">Phone:</label>
-            <input type="phone" name="phone" required><br>
+            <input type="tel" name="phone" required pattern="^(2\d{9}|6\d{9})$"><br>
 
             <label for="organizer_id">Organizer ID:</label>
             (id - title)

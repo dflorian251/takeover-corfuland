@@ -1,5 +1,5 @@
 <?php
-  require "../../../conn.html";
+  require "../../../conn.php";
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Delete Organizer</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -221,7 +221,7 @@
               </a>
               <div class="collapse" id="organizers">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="admin_add_organizer.html">Add Organizer</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin_add_organizer.php">Add Organizer</a></li>
                   <li class="nav-item"> <a class="nav-link" href="admin_delete_organizer.html">Delete Organizer</a></li>
                 </ul>
               </div>
@@ -278,7 +278,7 @@
             <div class="page-header">
               <h3> Delete Organizer </h3>
             </div>
-            <form class="nice-form-group" action="../../admin_operations/delete_organizer.html" method="post">
+            <form class="nice-form-group" action="../../admin_operations/delete_organizer.php" method="post">
               <label for="organizer_id">Organizers:</label>
               (id - title - contact name - contact surname)
               <select name="organizer_id" id="organizers" required>
