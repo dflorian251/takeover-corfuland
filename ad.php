@@ -149,11 +149,23 @@
                         echo $row["advert_desc"];
                     ?>
                     </div>
+                    <?php
+                        if ( empty($row["advert_image"]) ) {
+                    ?>
+                    <br>
+                    <?php
+                        } else {
+                    ?>                    
                     <div class="advert-images">
                         <div class="advert-image">
                             <img src="data:image/png;charset=utf8;base64,<?php echo base64_encode($row['advert_image']); ?>">
                         </div>
-                    </div>
+                    </div>        
+                    <?php
+                        }
+                    ?>
+                    
+
                     <!-- CONTACT INFO SECTION MUST BE ADDED -->
                     <?php 
                         if ($row["show_contact_info"] == 1) {

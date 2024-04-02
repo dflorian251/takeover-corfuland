@@ -29,7 +29,7 @@ ul {
 
 h1.page-title {
     margin: 0 auto;
-      margin-bottom: 0px;
+    margin-bottom: 0px;
     margin-bottom: 2rem;
     width: 100%;
     max-width: 1110px;
@@ -87,6 +87,7 @@ h1.page-title {
 }
 
 .adverts-container > .adverts > .advert > article > .advert-title {
+    font-size: clamp(1rem, 0.91rem + 0.4vw, 1.45rem);
     color: #ff4949;
 }
 

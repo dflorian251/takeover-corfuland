@@ -75,6 +75,11 @@ h1.page-title {
     color: #000 !important;
 }
 
+.curtural-event > article > .curtural-event-image {
+    width: 349.983px;
+    height: 196.5px;
+}
+
 .curtural-event > article > .curtural-event-image > img {
     width: 100%;
     object-fit: cover;
@@ -88,7 +93,6 @@ h1.page-title {
 }
 
 .curtural-event > article > .curtural-event-info > .curtural-event-title {
-    font-size: 1.375rem;
     line-break: 1.15rem;
     text-transform: uppercase;
     color:#efb149;
