@@ -68,3 +68,13 @@ body {
     background-color: #0b3060;
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
 }
+
+.form-container > .nice-form-group > .link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.form-container > .nice-form-group > a:hover {
+    text-decoration: underline;
+}

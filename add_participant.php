@@ -54,7 +54,7 @@ try {
 }
 
 // Handle form submission
-echo "Applicatation posted successfully!";
+include "redirect.html"
 ?>
 <br>
 <a href="/takeover-corfuland/curtural-events.php">Events page</a>
