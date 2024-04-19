@@ -3,11 +3,19 @@
     <head>
         <title>Δήλωσε ενδιαφέρον!</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="css/participant.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        </style>
+        
         <!-- NICE FORMS -->
         <link rel="stylesheet" href="node_modules/nice-forms.css/dist/nice-forms.css">
     </head>
     <body>
-        <div class="form-container" style="width: 70%;">
+        <div class="form-container">
+            <div class="page-header">
+                <h2>Δήλωσε Ενδιαφέρον!</h2>
+            </div>
             <form class="nice-form-group" action="" method="post">
                 <label for="first_name">Όνομα:</label>
                 <input type="text" id="first_name" name="first_name" required><br>
@@ -24,7 +32,7 @@
                 <label for="desc">Περιγραφή:</label>
                 <textarea name="desc" rows="4" required></textarea><br>
                 <br>
-                <input type="submit" value="Done">
+                <input type="submit" value="Υποβολή">
             </form>
         </div>
     </body>

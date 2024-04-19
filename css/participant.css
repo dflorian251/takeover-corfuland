@@ -1,0 +1,69 @@
+:root {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Ubuntu","Source Sans Pro";
+    font-size: 1rem;    /* clamp(0.75rem, -58.042rem + 261.3vw, 1.25rem); */
+    line-height: 1.42857143;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    background-color: #1b4377;
+}
+
+.form-container {
+    width: 70%;
+    margin: auto;
+    background-color: #9b0101;
+    border: #fff 5px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+}
+
+.form-container .page-header {
+    text-align: center;
+    margin: 1rem 0;
+    color: #fff;
+}
+
+.form-container > .nice-form-group {
+    width: 60%;
+    margin: 0 auto;
+    padding: 1rem 2rem 1rem 0.5rem;
+    background-color: #fff;
+    border-radius: 2%;
+}
+
+.form-container > .nice-form-group > label {
+    color: #000;
+}
+
+.form-container > .nice-form-group > input[type] {
+    height: var(--nf-input-size);
+}
+
+.form-container > .nice-form-group > input[type="submit"] {
+    color:#fff;
+    background-color: #1b4377;
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+.form-container > .nice-form-group > input[type="submit"]:hover {
+    background-color: #0b3060;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+}
