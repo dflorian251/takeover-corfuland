@@ -1,3 +1,19 @@
+<?php
+session_start();
+require "conn.php";
+// Retrive the event id from the previous page
+if (isset($_GET['id'])) {
+    $event_id = $_GET['id'];
+    $_SESSION["event_id"] = $event_id;
+    session_write_close();
+    $query = "SELECT `title` FROM events WHERE events.id = $event_id;";
+    $stmt = $conn->prepare($query); 
+    $stmt->execute(); 
+    $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+    $result = $stmt->fetchAll();
+}
+foreach ($result as $row) {
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +30,14 @@
     <body>
         <div class="form-container">
             <div class="page-header">
-                <h2>Δήλωσε Ενδιαφέρον!</h2>
+                <h2>ΔΗΛΩΣΕ ΕΝΔΙΑΦΕΡΟΝ</h2>
+                <h4>ΓΙΑ ΤΗΝ ΕΚΔΗΛΩΣΗ</h4>
+                <small>
+                <?php
+                    echo $row["title"];
+                    }
+                ?>
+                </small>
             </div>
             <form class="nice-form-group" action="add_participant.php" method="post">
                 <label for="first_name">Όνομα:</label>

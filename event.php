@@ -9,8 +9,7 @@
         $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
         $result = $stmt->fetchAll(); 
     } 
-?>
-<?php
+    
     foreach ($result as $row) {
 ?>
 <!DOCTYPE html>
@@ -131,7 +130,6 @@
 
         <div class="article-container">
             <article>
-
                 <div class="event-header">
                     <h2 class="event-title"><?php echo $row['title']; ?></h2>
                     <a class="event-location" href="#" target="_blank"><?php echo $row['location'];?></a>
@@ -181,6 +179,8 @@
                         </div>
                     </div>
                 </div>
+
+
                 <a target="_blank" href="./show_interest.php?id=<?=$row['id']?>"><button>Ενδιαφέρομαι</button></a>
             </article>
         </div>
