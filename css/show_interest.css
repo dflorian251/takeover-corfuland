@@ -53,9 +53,15 @@ body {
     color: #000;
 }
 
-.form-container > .nice-form-group > input[type] {
+.form-container > .nice-form-group > input[type],
+.form-container > .nice-form-group > .select {
     height: var(--nf-input-size);
 }
+
+.form-container > .nice-form-group > input[type="file"] {
+    height: calc(var(--nf-input-size)*2.75);
+}
+
 
 .form-container > .nice-form-group > input[type="submit"] {
     color:#fff;

@@ -125,7 +125,7 @@
 
         <div class="advert-menu-container">
             <ul class="advert-menu">
-                <li class="advert-menu-option"><a href="#">ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</a></li>
+                <li class="advert-menu-option"><a href="ads_operations/ad_register.html">ΚΑΤΑΧΩΡΗΣΗ ΑΓΓΕΛΙΑΣ</a></li>
                 <li class="advert-menu-option"><a href="#">ΕΠΕΞΕΡΓΑΣΙΑ ΑΓΓΕΛΙΑΣ</a></li>
                 <li class="advert-menu-option"><a href="#">ΔΙΑΓΡΑΦΗ ΑΓΓΕΛΙΑΣ</a></li>
             </ul>
