@@ -96,6 +96,7 @@ h1.page-title {
     line-break: 1.15rem;
     text-transform: uppercase;
     color:#efb149;
+    font-size: clamp(1.25rem, 1.1894rem + 0.2587vw, 1.5rem);
 }
 
 .curtural-event > article > .curtural-event-info > .curtural-event-short-desc {
@@ -109,6 +110,11 @@ h1.page-title {
 
 .curtural-event > article > .curtural-event-info > ul {
     padding: 0;
+}
+
+.curtural-event > article > .curtural-event-info > .curtural-event-short-desc,
+.curtural-event > article > .curtural-event-info > ul {
+    font-size: clamp(1.05rem, 1.01367rem + 0.1553vw, 1.2rem);
 }
 
 
@@ -128,10 +134,6 @@ h1.page-title {
 
     .curtural-events-container > .curtural-events > .curtural-event {
         width: 80%;
-    }
-
-    .curtural-events-container > .curtural-events > .curtural-event > article > .curtural-event-info > .curtural-event-title {
-        font-size: 1.25rem;
     }
 
     .curtural-events-container > .curtural-events > .curtural-event > article > .curtural-event-image {
