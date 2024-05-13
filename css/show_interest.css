@@ -84,3 +84,10 @@ body {
 .form-container > .nice-form-group > a:hover {
     text-decoration: underline;
 }
+
+.form-container > form.nice-form-group > div.nice-form-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
