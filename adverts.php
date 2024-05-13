@@ -210,5 +210,6 @@
                 isClicked = !isClicked;
             });
         </script>
+        <script src="https://kit.fontawesome.com/c4f6644410.js" crossorigin="anonymous"></script>
     </body>
 </html>

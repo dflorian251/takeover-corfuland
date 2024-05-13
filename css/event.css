@@ -15,7 +15,7 @@
 
 body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: clamp(0.75rem, -58.042rem + 261.3vw, 1.25rem);
+    font-size: clamp(1.05rem, 1.01367rem + 0.1553vw, 1.2rem);
     line-height: 1.42857143;
     color: #696973;
     display: flex;
@@ -37,6 +37,7 @@ article {
 .article-container > article > .event-header > .event-title {
     font-weight: 400;
     color: #000;
+    font-size: clamp(1.8rem, 1.51101rem + 1.235vw, 3rem);
 }
 
 .article-container > article > .event-header > .event-location {
@@ -124,10 +125,6 @@ article {
         margin: 0 auto;
         width: 80%;
         
-    }
-
-    .article-container > article > .event-header > .event-title {
-        font-size: 20px;
     }
 
     .article-container > article > .event-body {
