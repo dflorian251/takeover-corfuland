@@ -126,12 +126,17 @@ h1.page-title {
         align-items: center;
     }
 
-    .curtural-event {
+    .curtural-events-container > .curtural-events > .curtural-event {
         width: 80%;
     }
 
     .curtural-events-container > .curtural-events > .curtural-event > article > .curtural-event-info > .curtural-event-title {
         font-size: 1.25rem;
+    }
+
+    .curtural-events-container > .curtural-events > .curtural-event > article > .curtural-event-image {
+        width: 100% !important;
+        height: auto;
     }
 }
 
